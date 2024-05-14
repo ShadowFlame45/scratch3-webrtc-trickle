@@ -638,7 +638,6 @@ TODO 3: Audio panning support https://developer.mozilla.org/en-US/docs/Web/API/S
                             blockType: Scratch2.BlockType.EVENT,
                             text: 'On new ICE candidate',
                             isEdgeActivated: false,
-                            shouldRestartExistingThreads: true,
                         },
                         {
                             opcode: 'getIce',
@@ -773,7 +772,7 @@ TODO 3: Audio panning support https://developer.mozilla.org/en-US/docs/Web/API/S
                 return JSON.stringify(this.webrtc.getConnectedPeers());
             }
     
-            newPeer(args) {
+            newPeer(args, util) {
                 const name = args.name;
 
                 if (this.webrtc.peerConnections.has(name)) {
@@ -786,7 +785,7 @@ TODO 3: Audio panning support https://developer.mozilla.org/en-US/docs/Web/API/S
                 this.webrtc.onIceCandidate(name, (candidate) => {
                     this.ice["candidate"] = btoa(candidate);
                     this.ice["peer"] = name;
-                    vm.runtime.startHats('webrtc_onNewIceCandidate');
+                    util.startHats('webrtc_onNewIceCandidate');
                 });
 
                 this.webrtc.onChannelClose(name, (channel) => {
