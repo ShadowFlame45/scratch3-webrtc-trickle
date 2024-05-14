@@ -637,6 +637,8 @@ TODO 3: Audio panning support https://developer.mozilla.org/en-US/docs/Web/API/S
                             opcode: 'onNewIceCandidate',
                             blockType: Scratch2.BlockType.EVENT,
                             text: 'On new ICE candidate',
+                            isEdgeActivated: false,
+                            shouldRestartExistingThreads: true,
                         },
                         {
                             opcode: 'getIce',
