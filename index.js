@@ -872,7 +872,7 @@ TODO 3: Audio panning support https://developer.mozilla.org/en-US/docs/Web/API/S
             }
     
             handleIce(args) {
-                const candidate = atob(args.ice);
+                const candidate = JSON.parse(atob(args.ice));
                 this.webrtc.addDataIceCandidate(args.peer, candidate);
             }
     
