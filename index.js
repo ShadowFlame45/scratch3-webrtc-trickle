@@ -783,7 +783,7 @@ TODO 3: Audio panning support https://developer.mozilla.org/en-US/docs/Web/API/S
                 this.webrtc.createConnection(name, name, false);
 
                 this.webrtc.onIceCandidate(name, (candidate) => {
-                    this.ice["candidate"] = btoa(candidate);
+                    this.ice["candidate"] = btoa(JSON.stringify(candidate));
                     this.ice["peer"] = name;
                     util.startHats('webrtc_onNewIceCandidate');
                 });
